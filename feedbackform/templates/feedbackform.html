@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NTH</title>
+    {% include 'cdnline.html' %}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div offset-md-4 col-md-4>
+
+            {% if feedbacks %}
+                {% for i in feedbacks %}
+                {% endfor %}
+            {% else %}
+            <h3>No Feedback Available</h3>
+            {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <label>Enter Your Name:</label>
+                    <input type="text" name="name1" class="form-control">
+
+                    <label>Enter Your Feedback:</label>
+                    <textarea name="feedback1" class="form-control"></textarea>
+
+                    <input type="submit" value="feedback" class="btn btn-success">
+                    <input type="reset" value="Clear" class="btn btn-danger">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
